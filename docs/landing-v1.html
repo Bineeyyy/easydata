@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EasyData — Έτοιμος για το myDATA;</title>
+<meta name="description" content="Από 1 Οκτωβρίου 2026, κάθε τιμολόγιο πρέπει να περνάει από το myDATA. Σε βοηθάμε να το κάνεις σε 30 δευτερόλεπτα — από το κινητό σου." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #FAF6EE;
+    --cream-deep: #F2EBD9;
+    --espresso: #1A1612;
+    --espresso-soft: #2C2620;
+    --taupe: #6B5D4F;
+    --taupe-light: #8C7E6E;
+    --terracotta: #B8442A;
+    --terracotta-deep: #8E311E;
+    --gold: #C8943A;
+    --border: #E8DFC9;
+    --border-soft: #EDE5D2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--espresso);
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* subtle grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.085 0 0 0 0 0.07 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* ========== NAV ========== */
+  nav {
+    padding: 28px 0;
+    position: relative;
+    z-index: 10;
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--espresso);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  .logo-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    transform: translateY(-14px);
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav-links a {
+    color: var(--taupe);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--espresso); }
+  .nav-cta {
+    background: var(--espresso);
+    color: var(--cream) !important;
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover {
+    background: var(--terracotta);
+    transform: translateY(-1px);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: 80px 0 100px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--espresso);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.25s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracotta);
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--taupe);
+    margin-bottom: 40px;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-form {
+    display: flex;
+    gap: 8px;
+    max-width: 480px;
+    background: white;
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 0 rgba(26, 22, 18, 0.04), 0 8px 32px rgba(26, 22, 18, 0.06);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.55s forwards;
+  }
+  .hero-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 14px 20px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--espresso);
+    outline: none;
+  }
+  .hero-form input::placeholder { color: var(--taupe-light); }
+  .hero-form button {
+    background: var(--espresso);
+    color: var(--cream);
+    border: none;
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .hero-form button:hover {
+    background: var(--terracotta);
+    transform: translateY(-1px);
+  }
+  .hero-microcopy {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--taupe);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+  .hero-microcopy strong { color: var(--terracotta); font-weight: 600; }
+
+  /* hero right — countdown */
+  .hero-visual {
+    position: relative;
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+  .countdown-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .countdown-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 12vw, 160px);
+    line-height: 0.9;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--espresso);
+    font-feature-settings: "lnum" 1;
+  }
+  .countdown-date .sep { color: var(--terracotta); font-style: italic; font-weight: 400; }
+  .countdown-meta {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px;
+    background: var(--cream-deep);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--espresso-soft);
+    border: 1px solid var(--border);
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    position: relative;
+  }
+  .pulse-dot::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 2s infinite;
+  }
+
+  /* ========== BENEFITS ========== */
+  .benefits {
+    padding: 80px 0 100px;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .benefits h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 80px;
+    max-width: 720px;
+  }
+  .benefits h2 em { font-style: italic; color: var(--terracotta); }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+  }
+  .benefit {
+    position: relative;
+  }
+  .benefit-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--cream-deep);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .benefit-icon svg { width: 22px; height: 22px; stroke: var(--espresso); }
+  .benefit h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .benefit p {
+    color: var(--taupe);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .benefit p strong { color: var(--espresso-soft); font-weight: 600; }
+
+  /* ========== OCTOBER ========== */
+  .october {
+    padding: 100px 0;
+    background: var(--espresso);
+    color: var(--cream);
+    margin: 60px 0;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .october::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .october-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .october .section-label { color: var(--gold); }
+  .october .section-label::before { background: var(--gold); }
+  .october h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.5vw, 64px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .october h2 em { font-style: italic; color: var(--gold); }
+  .october p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(250, 246, 238, 0.78);
+    margin-bottom: 16px;
+  }
+  .october p strong { color: var(--cream); font-weight: 600; }
+  .penalty-stack { display: flex; flex-direction: column; gap: 20px; }
+  .penalty-card {
+    padding: 32px;
+    background: rgba(250, 246, 238, 0.04);
+    border: 1px solid rgba(250, 246, 238, 0.12);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .penalty-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .penalty-num em { font-style: italic; }
+  .penalty-label {
+    font-size: 14px;
+    color: rgba(250, 246, 238, 0.75);
+    line-height: 1.5;
+  }
+
+  /* ========== HOW ========== */
+  .how {
+    padding: 100px 0;
+  }
+  .how-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+  .how h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .how h2 em { font-style: italic; color: var(--terracotta); }
+  .how-intro {
+    color: var(--taupe);
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 380px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .step {
+    padding: 40px 32px 40px 0;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .step:last-child { border-right: none; padding-right: 0; }
+  .step:not(:first-child) { padding-left: 32px; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .step p {
+    color: var(--taupe);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* ========== CTA ========== */
+  .cta-section {
+    padding: 120px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 6.5vw, 80px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--terracotta); }
+  .cta-section .sub {
+    color: var(--taupe);
+    font-size: 18px;
+    line-height: 1.55;
+    max-width: 540px;
+    margin: 0 auto 48px;
+  }
+  .cta-form {
+    display: flex;
+    gap: 8px;
+    max-width: 520px;
+    margin: 0 auto;
+    background: white;
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 0 rgba(26, 22, 18, 0.04), 0 8px 32px rgba(26, 22, 18, 0.06);
+  }
+  .cta-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 16px 22px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--espresso);
+    outline: none;
+  }
+  .cta-form input::placeholder { color: var(--taupe-light); }
+  .cta-form button {
+    background: var(--terracotta);
+    color: var(--cream);
+    border: none;
+    padding: 16px 30px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cta-form button:hover {
+    background: var(--terracotta-deep);
+    transform: translateY(-1px);
+  }
+  .cta-microcopy {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--taupe);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 48px 0 60px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .footer-disclaimer {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--taupe);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+  .footer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 13px;
+    color: var(--taupe);
+  }
+  .footer-meta a { color: var(--taupe); text-decoration: none; }
+  .footer-meta a:hover { color: var(--espresso); }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+
+  /* form success state */
+  .form-success {
+    background: var(--cream-deep) !important;
+    border-color: var(--terracotta) !important;
+    padding: 18px 24px !important;
+    text-align: center;
+    color: var(--espresso);
+    font-size: 14.5px;
+    font-weight: 500;
+    border-radius: 100px;
+    border: 1px solid;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .hero { padding: 50px 0 70px; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+    .hero-visual { text-align: left; }
+    .countdown-date { font-size: 88px; }
+    .benefit-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .benefits h2 { margin-bottom: 56px; }
+    .october {
+      padding: 70px 32px;
+      margin: 40px -8px;
+      border-radius: 16px;
+    }
+    .october-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .how-header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .steps {
+      grid-template-columns: 1fr;
+    }
+    .step {
+      padding: 32px 0 !important;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-meta {
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero-form, .cta-form { flex-direction: column; padding: 8px; border-radius: 16px; }
+    .hero-form button, .cta-form button { width: 100%; padding: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 44px; }
+    .countdown-date { font-size: 72px; }
+    .penalty-num { font-size: 44px; }
+    .cta-section { padding: 80px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      easydata<span class="logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">Πώς δουλεύει</a>
+      <a href="#october">1 Οκτωβρίου</a>
+      <a href="#waitlist" class="nav-cta">Μπες στη λίστα</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Έρχεται 1 Οκτωβρίου 2026</div>
+        <h1>Έτοιμος <em>για το myDATA;</em></h1>
+        <p class="hero-sub">
+          Από 1 Οκτωβρίου, κάθε τιμολόγιο πρέπει να περνάει ηλεκτρονικά από το myDATA. Σε βοηθάμε να το κάνεις σε <strong style="color:var(--espresso);font-weight:600">30 δευτερόλεπτα</strong> — από το κινητό σου.
+        </p>
+        <form class="hero-form" id="heroForm">
+          <input type="email" placeholder="το email σου" required />
+          <button type="submit">Με ενδιαφέρει →</button>
+        </form>
+        <div class="hero-microcopy">
+          Πρώτος μήνας <strong>δωρεάν</strong> στους πρώτους 100. Χωρίς κάρτα.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="countdown-label">Η αντίστροφη μέτρηση ξεκίνησε</div>
+        <div class="countdown-date">
+          01<span class="sep">.</span>10<span class="sep">.</span>26
+        </div>
+        <div class="countdown-meta">
+          <span class="pulse-dot"></span>
+          <span>Υποχρεωτικό για όλους τους ελεύθερους επαγγελματίες</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-label">Τι κάνει το EasyData</div>
+    <h2>Τρία πράγματα. <em>Καλά καμωμένα.</em></h2>
+
+    <div class="benefit-grid">
+      <div class="benefit">
+        <div class="benefit-num">— 01 —</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3>Τιμολόγιο σε 3 tap</h3>
+        <p>Συμπληρώνουμε αυτόματα <strong>ΑΦΜ, ΚΑΔ και classification code</strong>. Δεν χρειάζεται να ξέρεις τι είναι το «1.1». Εμείς ξέρουμε.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-num">— 02 —</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </div>
+        <h3>Ποτέ ξανά πρόστιμο</h3>
+        <p>Σου θυμίζουμε <strong>ΦΠΑ, ΕΦΚΑ και deadlines</strong> πριν είναι αργά. Notification στο κινητό σου, με το ποσό και το link πληρωμής.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-num">— 03 —</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3>Ο λογιστής σου θα σ' αγαπήσει</h3>
+        <p>Ένα κουμπί. Καθαρό export κάθε μήνα — <strong>Excel + PDF</strong> έτοιμα να σταλούν. Χωρίς κενά, χωρίς λάθη, χωρίς γκρίνια.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OCTOBER ============ -->
+<section id="october">
+  <div class="container">
+    <div class="october">
+      <div class="october-grid" style="padding: 0 56px;">
+        <div>
+          <div class="section-label">1 Οκτωβρίου 2026</div>
+          <h2>Τι αλλάζει <em>για όλους μας;</em></h2>
+          <p>
+            Όλοι οι ελεύθεροι επαγγελματίες και οι μικρές επιχειρήσεις στην Ελλάδα <strong>υποχρεούνται να εκδίδουν τιμολόγια ηλεκτρονικά</strong> μέσω myDATA.
+          </p>
+          <p>
+            Χωρίς MARK — χωρίς ΦΠΑ. Χωρίς ΦΠΑ — με πρόστιμο. Το EasyData σε προετοιμάζει από τώρα, χωρίς να αλλάξεις λογιστή, χωρίς πολύπλοκο software.
+          </p>
+        </div>
+
+        <div class="penalty-stack">
+          <div class="penalty-card">
+            <div class="penalty-num">50<em>%</em></div>
+            <div class="penalty-label">Πρόστιμο επί του ΦΠΑ της συναλλαγής για κάθε τιμολόγιο που δεν περάσει σωστά από myDATA</div>
+          </div>
+          <div class="penalty-card">
+            <div class="penalty-num">€500<em>—</em>1.000</div>
+            <div class="penalty-label">Σταθερό πρόστιμο για συναλλαγές χωρίς ΦΠΑ, ανάλογα με το λογιστικό σύστημα</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section id="how" class="how">
+  <div class="container">
+    <div class="how-header">
+      <h2>Όλη η συμμόρφωση. <em>Χωρίς το άγχος.</em></h2>
+      <p class="how-intro">Δεν χρειάζεσαι ολόκληρο ERP για να εκδώσεις 8 τιμολόγια τον μήνα. Χρειάζεσαι κάτι που δουλεύει — από το κινητό, στα ελληνικά, χωρίς εκπαίδευση.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">— Βήμα 01 —</div>
+        <h3>Συνδέεις τα στοιχεία σου</h3>
+        <p>ΑΦΜ, ΚΑΔ, καθεστώς ΦΠΑ, κατηγορία ΕΦΚΑ. Μία φορά. Σε 2 λεπτά. Δεν χρειάζεται κωδικός TaxisNet — απλά τα βασικά.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">— Βήμα 02 —</div>
+        <h3>Εκδίδεις σε 30 δευτερόλεπτα</h3>
+        <p>Πληκτρολογείς ΑΦΜ πελάτη — εμφανίζεται. Γράφεις τι έκανες — προτείνουμε classification. Πατάς αποστολή — έτοιμο.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">— Βήμα 03 —</div>
+        <h3>Στέλνεις στον λογιστή</h3>
+        <p>Στο τέλος του μήνα, ένα tap. Excel + PDF, ταξινομημένα όπως τα θέλει. Κανένα Viber message στις 10 το βράδυ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="waitlist" class="cta-section">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;display:inline-flex;">Λίστα αναμονής</div>
+    <h2>Μπες <em>πρώτος.</em><br/>Πληρώνεις τελευταίος.</h2>
+    <p class="sub">
+      Στους πρώτους 100 που μπαίνουν στη λίστα, κλειδώνουμε <strong style="color:var(--terracotta);font-weight:600;">€9/μήνα για πάντα</strong>. Στέλνουμε ένα email όταν ανοίγουμε. Όχι spam.
+    </p>
+    <form class="cta-form" id="ctaForm">
+      <input type="email" placeholder="το email σου" required />
+      <button type="submit">Κράτα τη θέση μου →</button>
+    </form>
+    <div class="cta-microcopy">
+      Δωρεάν για τους πρώτους 30 ημέρες · Ακυρώνεις όποτε θες · Χωρίς κάρτα
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a href="#" class="logo">easydata<span class="logo-dot"></span></a>
+      <div class="footer-disclaimer">
+        Δεν είμαστε υποκατάστατο του λογιστή σου. Είμαστε το εργαλείο που του κάνει — και σου κάνει — τη ζωή πιο εύκολη.
+      </div>
+    </div>
+    <div class="footer-meta">
+      <div>© 2026 EasyData · Φτιαγμένο με μεράκι στην Ελλάδα</div>
+      <div style="display:flex;gap:24px;">
+        <a href="mailto:hello@easydata.gr">hello@easydata.gr</a>
+        <a href="#">Privacy</a>
+        <a href="#">Όροι</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // form handling — replace with your Supabase insert
+  function handleForm(formId, source) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input').value.trim();
+      if (!email) return;
+
+      // TODO: replace with actual Supabase call
+      // const { error } = await supabase
+      //   .from('waitlist')
+      //   .insert({ email, source, created_at: new Date().toISOString() });
+
+      console.log('Waitlist signup:', { email, source });
+
+      // success state
+      form.outerHTML = `<div class="form-success">✓ Είσαι μέσα. Θα ακούσεις από εμάς πρώτος.</div>`;
+    });
+  }
+
+  handleForm('heroForm', 'hero');
+  handleForm('ctaForm', 'cta_bottom');
+
+  // smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
