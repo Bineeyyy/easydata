@@ -1,3 +1,4 @@
+import { StickyMobileCta } from "@/components/sticky-mobile-cta";
 import { Benefits } from "./(marketing)/_components/benefits";
 import { CtaSection } from "./(marketing)/_components/cta-section";
 import { Hero } from "./(marketing)/_components/hero";
@@ -18,6 +19,7 @@ export default function Home() {
         <CtaSection />
       </main>
       <SiteFooter />
+      <StickyMobileCta />
     </>
   );
 }

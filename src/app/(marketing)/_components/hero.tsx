@@ -3,7 +3,7 @@ import { WaitlistForm } from "./waitlist-form";
 
 export function Hero() {
   return (
-    <section className="relative pt-20 pb-24 lg:pt-20 lg:pb-[100px]">
+    <section id="hero" className="relative pt-20 pb-24 lg:pt-20 lg:pb-[100px]">
       <div className="relative z-[2] mx-auto max-w-[1240px] px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-14 lg:gap-20 items-center">
           {/* LEFT: copy + form */}
