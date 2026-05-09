@@ -1,3 +1,4 @@
+import { Countdown, CountdownEyebrow } from "./countdown";
 import { WaitlistForm } from "./waitlist-form";
 
 export function Hero() {
@@ -45,12 +46,11 @@ export function Hero() {
 
           {/* RIGHT: countdown */}
           <div className="lg:text-right opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.5s]">
-            <div className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-taupe">
-              Η αντίστροφη μέτρηση ξεκίνησε
-            </div>
+            <CountdownEyebrow />
             <div className="font-display font-medium tracking-[-0.04em] text-espresso text-[clamp(72px,12vw,160px)] leading-[0.9] [font-feature-settings:'lnum'_1]">
               01<span className="font-display italic font-normal text-terracotta">.</span>10<span className="font-display italic font-normal text-terracotta">.</span>26
             </div>
+            <Countdown />
             <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-border bg-cream-deep px-[18px] py-2.5 text-[13px] text-espresso-soft">
               <span className="pulse-dot" />
               <span>Υποχρεωτικό για όλους τους ελεύθερους επαγγελματίες</span>
