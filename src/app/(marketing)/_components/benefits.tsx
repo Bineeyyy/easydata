@@ -98,10 +98,7 @@ export function Benefits() {
         </div>
 
         <h2 className="mb-14 lg:mb-20 max-w-[720px] font-display font-medium tracking-[-0.02em] text-[clamp(36px,5vw,56px)] leading-[1.05]">
-          Τρία πράγματα.{" "}
-          <em className="not-italic font-display italic text-terracotta">
-            Καλά καμωμένα.
-          </em>
+          Τρία πράγματα.
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-14">
