@@ -48,3 +48,4 @@ Migrate the existing single-file HTML landing page prototype to a proper Next.js
 
 ## Decisions Log
 - 2026-05-09: Display=EB Garamond + body=IBM Plex Sans. Both have Greek subsets via Google Fonts. Italic loaded for all four weights instead of selectively splitting loaders — accepted ~2 extra small WOFF2s for cleaner code.
+- 2026-05-09: Client-direct Supabase via anon key + RLS insert-only policy. No service_role needed yet. Will revisit when admin functionality is added.
