@@ -19,7 +19,16 @@ export async function joinWaitlist(input: {
 
   const { error } = await supabase.from("waitlist").insert(parsed.data);
 
-  if (!error) return { ok: true };
+  if (!error) {
+    // Fire-and-forget confirmation email. Failures are silent — analytics
+    // captures success/failure server-side via confirmation_email_sent.
+    void fetch("/api/waitlist-confirm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: parsed.data.email }),
+    }).catch(() => {});
+    return { ok: true };
+  }
 
   if (error.code === "23505") return { ok: false, reason: "duplicate" };
 
