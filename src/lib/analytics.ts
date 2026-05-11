@@ -56,6 +56,15 @@ export type WaitlistSource = "hero" | "cta_bottom" | "exit_modal";
 export type WaitlistResult = "success" | "duplicate" | "invalid" | "server";
 export type ScrollPercent = 25 | 50 | 75 | 100;
 export type ExitModalDismissMethod = "escape" | "backdrop" | "close_button";
+export type FaqQuestion =
+  | "q1"
+  | "q2"
+  | "q3"
+  | "q4"
+  | "q5"
+  | "q6"
+  | "q7"
+  | "q8";
 
 export function trackPageview(pathname: string): void {
   capture("pageview", { pathname });
@@ -86,4 +95,8 @@ export function trackExitModalDismiss(method: ExitModalDismissMethod): void {
 
 export function trackExitModalSubmit(): void {
   capture("exit_modal_submit");
+}
+
+export function trackFaqOpen(question: FaqQuestion): void {
+  capture("faq_open", { question });
 }

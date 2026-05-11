@@ -1,6 +1,7 @@
 import { StickyMobileCta } from "@/components/sticky-mobile-cta";
 import { Benefits } from "./(marketing)/_components/benefits";
 import { CtaSection } from "./(marketing)/_components/cta-section";
+import { Faq } from "./(marketing)/_components/faq";
 import { Hero } from "./(marketing)/_components/hero";
 import { HowItWorks } from "./(marketing)/_components/how-it-works";
 import { OctoberCallout } from "./(marketing)/_components/october-callout";
@@ -16,6 +17,7 @@ export default function Home() {
         <Benefits />
         <OctoberCallout />
         <HowItWorks />
+        <Faq />
         <CtaSection />
       </main>
       <SiteFooter />
