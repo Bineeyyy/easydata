@@ -64,7 +64,8 @@ export default function PrivacyPage() {
               <li>
                 <strong className="font-medium text-espresso">Email:</strong>{" "}
                 για να σε ειδοποιήσουμε όταν η εφαρμογή είναι έτοιμη και να
-                μοιραστούμε news σχετικά με το myDATA.
+                μοιραστούμε news σχετικά με το myDATA και την ηλεκτρονική
+                τιμολόγηση.
               </li>
               <li>
                 <strong className="font-medium text-espresso">

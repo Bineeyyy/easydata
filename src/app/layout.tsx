@@ -9,7 +9,7 @@ const SITE_URL = "https://easydata-jet.vercel.app";
 const SITE_NAME = "EasyData";
 const DEFAULT_TITLE = "EasyData — Έτοιμος για το myDATA;";
 const DESCRIPTION =
-  "myDATA companion για ελεύθερους επαγγελματίες. Έκδοση τιμολογίων σε 30 δευτερόλεπτα, υπενθυμίσεις deadlines, καθαρό export για τον λογιστή σου.";
+  "myDATA companion για ελεύθερους επαγγελματίες. Έκδοση τιμολογίων μέσω παρόχου ηλεκτρονικής τιμολόγησης σε 30 δευτερόλεπτα, υπενθυμίσεις deadlines, καθαρό export για τον λογιστή σου.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

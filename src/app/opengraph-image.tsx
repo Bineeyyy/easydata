@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt =
-  "EasyData — Έτοιμος για το myDATA; Από 1 Οκτωβρίου 2026, υποχρεωτικό για όλους τους ελεύθερους επαγγελματίες.";
+  "EasyData — Έτοιμος για το myDATA; Από 1 Οκτωβρίου 2026, η ηλεκτρονική τιμολόγηση γίνεται υποχρεωτική.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -79,8 +79,8 @@ export default async function Image() {
               maxWidth: 880,
             }}
           >
-            Από 1 Οκτωβρίου 2026, υποχρεωτικό για όλους τους ελεύθερους
-            επαγγελματίες.
+            Από 1 Οκτωβρίου 2026, η ηλεκτρονική τιμολόγηση γίνεται
+            υποχρεωτική.
           </div>
         </div>
 

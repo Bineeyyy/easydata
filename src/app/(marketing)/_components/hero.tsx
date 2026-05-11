@@ -24,8 +24,9 @@ export function Hero() {
             </h1>
 
             <p className="mb-10 max-w-[480px] text-[19px] leading-[1.55] text-taupe opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.4s]">
-              Από 1 Οκτωβρίου, κάθε τιμολόγιο πρέπει να περνάει ηλεκτρονικά
-              από το myDATA. Σε βοηθάμε να το κάνεις σε{" "}
+              Από 1 Οκτωβρίου 2026, κάθε τιμολόγιο εκδίδεται υποχρεωτικά
+              μέσω παρόχου ηλεκτρονικής τιμολόγησης. Σε βοηθάμε να το
+              κάνεις σε{" "}
               <strong className="font-semibold text-espresso">
                 30 δευτερόλεπτα
               </strong>{" "}

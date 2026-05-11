@@ -64,7 +64,8 @@ export type FaqQuestion =
   | "q5"
   | "q6"
   | "q7"
-  | "q8";
+  | "q8"
+  | "q9";
 
 export function trackPageview(pathname: string): void {
   capture("pageview", { pathname });
