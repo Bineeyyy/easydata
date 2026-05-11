@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { trackStickyCtaTap } from "@/lib/analytics";
 
 export function StickyMobileCta() {
   const [pastHero, setPastHero] = useState(false);
@@ -35,7 +36,7 @@ export function StickyMobileCta() {
     <a
       href="#waitlist"
       aria-label="Μπες δωρεάν στη λίστα"
-      // TODO: track('sticky_cta_clicked') once analytics SDK is in
+      onClick={() => trackStickyCtaTap()}
       className={[
         "md:hidden",
         "fixed inset-x-0 bottom-0 z-50",

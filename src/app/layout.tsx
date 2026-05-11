@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ebGaramond, ibmPlexSans } from "@/lib/fonts";
+import { AnalyticsProvider } from "@/components/analytics-provider";
+import { ScrollDepthTracker } from "@/components/scroll-depth-tracker";
 import "./globals.css";
 
 const SITE_URL = "https://easydata-jet.vercel.app";
@@ -51,7 +53,12 @@ export default function RootLayout({
       lang="el"
       className={`${ebGaramond.variable} ${ibmPlexSans.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <AnalyticsProvider>
+          <ScrollDepthTracker />
+          {children}
+        </AnalyticsProvider>
+      </body>
     </html>
   );
 }

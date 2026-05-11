@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { joinWaitlist } from "@/lib/waitlist";
+import { trackWaitlistSubmit } from "@/lib/analytics";
 
 type Status =
   | { kind: "idle" }
@@ -35,10 +36,10 @@ export function WaitlistForm({
     const result = await joinWaitlist({ email, source });
     if (result.ok) {
       setStatus({ kind: "success" });
-      // TODO: track('waitlist_joined', { source }) once analytics SDK is in
+      trackWaitlistSubmit(source, "success");
     } else {
       setStatus({ kind: "error", reason: result.reason });
-      // TODO: track('waitlist_failed', { source, reason: result.reason }) once analytics SDK is in
+      trackWaitlistSubmit(source, result.reason);
     }
   }
 

@@ -13,6 +13,7 @@
     "@fontsource/ibm-plex-sans": "^5.2.8",
     "@supabase/supabase-js": "^2.105.4",
     "next": "16.2.6",
+    "posthog-js": "^1.372.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "zod": "^4.4.3"
