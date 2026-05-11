@@ -3,7 +3,7 @@ import { supabase } from "./supabase/client";
 
 const schema = z.object({
   email: z.string().trim().toLowerCase().email(),
-  source: z.enum(["hero", "cta_bottom"]),
+  source: z.enum(["hero", "cta_bottom", "exit_modal"]),
 });
 
 export type JoinResult =

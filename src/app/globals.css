@@ -106,3 +106,8 @@ body::before {
   opacity: 0.3;
   animation: var(--animate-pulse-ring);
 }
+
+.pulse-dot--live,
+.pulse-dot--live::before {
+  background: #4a8c5c;
+}

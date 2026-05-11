@@ -1,3 +1,4 @@
+import { WaitlistCount } from "@/components/waitlist-count";
 import { Countdown, CountdownEyebrow } from "./countdown";
 import { WaitlistForm } from "./waitlist-form";
 
@@ -35,6 +36,7 @@ export function Hero() {
               <div className="lg:[&>div]:mx-0">
                 <WaitlistForm source="hero" />
               </div>
+              <WaitlistCount align="left" />
             </div>
 
             <p className="mt-4 text-[13px] text-taupe opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.7s]">

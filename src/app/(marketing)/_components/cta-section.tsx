@@ -1,3 +1,4 @@
+import { WaitlistCount } from "@/components/waitlist-count";
 import { WaitlistForm } from "./waitlist-form";
 
 export function CtaSection() {
@@ -30,6 +31,8 @@ export function CtaSection() {
         </p>
 
         <WaitlistForm source="cta_bottom" variant="terracotta" size="lg" />
+
+        <WaitlistCount align="center" />
 
         <p className="mt-5 text-[13px] text-taupe">
           Δωρεάν για τις πρώτες 30 ημέρες · Ακυρώνεις όποτε θες · Χωρίς κάρτα
