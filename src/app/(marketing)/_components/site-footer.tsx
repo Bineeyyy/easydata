@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Logo } from "./logo";
 
 export function SiteFooter() {
@@ -20,18 +21,18 @@ export function SiteFooter() {
             >
               hello@easydata.gr
             </a>
-            <a
-              href="#"
+            <Link
+              href="/privacy"
               className="transition-colors hover:text-espresso"
             >
-              Privacy
-            </a>
-            <a
-              href="#"
+              Απόρρητο
+            </Link>
+            <Link
+              href="/terms"
               className="transition-colors hover:text-espresso"
             >
               Όροι
-            </a>
+            </Link>
           </div>
         </div>
       </div>
