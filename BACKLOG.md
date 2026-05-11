@@ -1,6 +1,6 @@
 # Backlog
 
-## Done today (2026-05-09)
+## Done (2026-05-09)
 - [x] Migrate single-file HTML prototype to Next.js App Router (multi-component)
 - [x] Pick & wire fonts: EB Garamond (display) + IBM Plex Sans (body), both with Greek subsets
 - [x] Provision Supabase project (`easydata`) + `public.waitlist` table + RLS insert-only policy
@@ -9,17 +9,24 @@
 - [x] Push to GitHub (`Bineeyyy/easydata`)
 - [x] Deploy to Vercel (`easydata-jet.vercel.app`)
 
+## Done (2026-05-10)
+- [x] Live countdown timer in hero with deadline-aware eyebrow
+- [x] Sticky mobile waitlist CTA bar with hero/form-aware visibility
+- [x] Copy: simplified benefits heading
+
+## Today (2026-05-11) — pre-traffic polish
+- [ ] Dynamic copyright year in `site-footer.tsx`
+- [ ] OG image + richer `<Metadata>` (title template, canonical, og:image, twitter card)
+- [ ] Favicon
+- [ ] `/privacy` + `/terms` Greek stubs (GDPR-defensible, footer links wired)
+- [ ] PostHog wire-up — env-keyed, graceful no-op when missing; track waitlist submit/duplicate/error, scroll depth (25/50/75/100), sticky CTA tap, exit modal show/dismiss/submit
+- [ ] Exit-intent modal (desktop-only trigger)
+
 ## Next session
 - [ ] Wire `easydata.gr` custom domain in Vercel (DNS, cert, www → apex redirect)
-- [ ] Replace `#` placeholders in footer with real `/privacy` and `/terms` routes (drafts can be stubs)
-- [ ] Wire PostHog — there are two `TODO: track(...)` markers in `waitlist-form.tsx` waiting
 - [ ] Add Resend for transactional email (welcome confirmation when someone joins)
 - [ ] Mobile nav: nav links currently hide below `lg` with no hamburger — add a drawer
-
-## Soon
-- [ ] OG image + richer `<Metadata>` (title template, canonical, og:image, twitter card)
 - [ ] `sitemap.ts` + `robots.ts` (Next 16 file conventions)
-- [ ] Dynamic copyright year in `site-footer.tsx` (currently hardcoded `© 2026`)
 - [ ] Decide: introduce a `(marketing)/layout.tsx` once `/privacy` and `/terms` exist
 - [ ] First playwright/vitest setup once there's a non-trivial logic surface to cover
 

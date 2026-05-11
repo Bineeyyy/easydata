@@ -12,7 +12,7 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="mt-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 border-t border-border-soft pt-7 text-[13px] text-taupe">
-          <div>© 2026 EasyData · Φτιαγμένο με μεράκι στην Ελλάδα</div>
+          <div>© {new Date().getFullYear()} EasyData · Φτιαγμένο με μεράκι στην Ελλάδα</div>
           <div className="flex gap-6">
             <a
               href="mailto:hello@easydata.gr"
