@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { ebGaramond, ibmPlexSans } from "@/lib/fonts";
 import { AnalyticsProvider } from "@/components/analytics-provider";
 import { ScrollDepthTracker } from "@/components/scroll-depth-tracker";
+import { ExitIntentModal } from "@/components/exit-intent-modal";
 import "./globals.css";
 
 const SITE_URL = "https://easydata-jet.vercel.app";
@@ -57,6 +58,7 @@ export default function RootLayout({
         <AnalyticsProvider>
           <ScrollDepthTracker />
           {children}
+          <ExitIntentModal />
         </AnalyticsProvider>
       </body>
     </html>

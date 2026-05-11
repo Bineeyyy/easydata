@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { joinWaitlist } from "@/lib/waitlist";
 import { trackWaitlistSubmit } from "@/lib/analytics";
+import {
+  WAITLIST_ERROR_COPY,
+  WAITLIST_SUCCESS_COPY,
+  SESSION_SUBSCRIBED_KEY,
+} from "@/lib/waitlist-copy";
 
 type Status =
   | { kind: "idle" }
@@ -14,12 +19,6 @@ type Props = {
   source: "hero" | "cta_bottom";
   variant?: "espresso" | "terracotta";
   size?: "default" | "lg";
-};
-
-const errorCopy: Record<"duplicate" | "invalid" | "server", string> = {
-  duplicate: "Είσαι ήδη στη λίστα.",
-  invalid: "Δώσε ένα έγκυρο email.",
-  server: "Κάτι πήγε στραβά. Δοκίμασε ξανά.",
 };
 
 export function WaitlistForm({
@@ -36,6 +35,11 @@ export function WaitlistForm({
     const result = await joinWaitlist({ email, source });
     if (result.ok) {
       setStatus({ kind: "success" });
+      try {
+        sessionStorage.setItem(SESSION_SUBSCRIBED_KEY, "1");
+      } catch {
+        // sessionStorage unavailable (private mode / quota) — ignore.
+      }
       trackWaitlistSubmit(source, "success");
     } else {
       setStatus({ kind: "error", reason: result.reason });
@@ -46,7 +50,7 @@ export function WaitlistForm({
   if (status.kind === "success") {
     return (
       <div className="rounded-full border border-terracotta bg-cream-deep px-6 py-[18px] text-center text-[14.5px] font-medium text-espresso max-w-[520px] mx-auto">
-        ✓ Είσαι μέσα. Θα ακούσεις από εμάς πρώτος.
+        {WAITLIST_SUCCESS_COPY}
       </div>
     );
   }
@@ -93,7 +97,7 @@ export function WaitlistForm({
           className="mt-3 text-[13px] text-terracotta-deep text-center lg:text-left"
           role="alert"
         >
-          {errorCopy[status.reason]}
+          {WAITLIST_ERROR_COPY[status.reason]}
         </p>
       )}
     </div>

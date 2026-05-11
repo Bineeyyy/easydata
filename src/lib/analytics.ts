@@ -52,9 +52,10 @@ function capture(event: string, props?: Record<string, unknown>): void {
   ph?.capture(event, props);
 }
 
-export type WaitlistSource = "hero" | "cta_bottom";
+export type WaitlistSource = "hero" | "cta_bottom" | "exit_modal";
 export type WaitlistResult = "success" | "duplicate" | "invalid" | "server";
 export type ScrollPercent = 25 | 50 | 75 | 100;
+export type ExitModalDismissMethod = "escape" | "backdrop" | "close_button";
 
 export function trackPageview(pathname: string): void {
   capture("pageview", { pathname });
@@ -75,14 +76,12 @@ export function trackStickyCtaTap(): void {
   capture("sticky_cta_tap");
 }
 
-// Reserved for task 5 (exit-intent modal) — wired in advance so the modal
-// just imports and calls.
 export function trackExitModalShow(): void {
   capture("exit_modal_show");
 }
 
-export function trackExitModalDismiss(): void {
-  capture("exit_modal_dismiss");
+export function trackExitModalDismiss(method: ExitModalDismissMethod): void {
+  capture("exit_modal_dismiss", { method });
 }
 
 export function trackExitModalSubmit(): void {
