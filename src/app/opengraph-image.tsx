@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt =
-  "EasyData — Έτοιμος για το myDATA; Από 1 Οκτωβρίου 2026, η ηλεκτρονική τιμολόγηση γίνεται υποχρεωτική.";
+  "EasyData — Τιμολόγιο σε 30 δευτερόλεπτα από το κινητό σου.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,9 +64,9 @@ export default async function Image() {
               letterSpacing: "-0.02em",
             }}
           >
-            <span>Έτοιμος για το&nbsp;</span>
+            <span>Τιμολόγιο σε&nbsp;</span>
             <span style={{ color: TERRACOTTA, fontStyle: "italic" }}>
-              myDATA;
+              30 δευτερόλεπτα.
             </span>
           </div>
           <div
@@ -79,8 +79,7 @@ export default async function Image() {
               maxWidth: 880,
             }}
           >
-            Από 1 Οκτωβρίου 2026, η ηλεκτρονική τιμολόγηση γίνεται
-            υποχρεωτική.
+            Από το κινητό σου.
           </div>
         </div>
 

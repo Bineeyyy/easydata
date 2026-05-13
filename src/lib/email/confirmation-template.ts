@@ -11,7 +11,7 @@ export const CONFIRMATION_EMAIL_TEXT = `Γεια σου,
 
 Τι σημαίνει αυτό:
 - Κρατάμε τη θέση σου με προτεραιότητα όταν ανοίξουμε
-- Στους πρώτους 100, κλειδώνουμε €9/μήνα για πάντα (μετά γίνεται €15)
+- Στους πρώτους 100, κλειδώνουμε €5/μήνα για πάντα (μετά γίνεται €7)
 - Πρώτος μήνας δωρεάν
 - Καμία κάρτα τώρα
 
@@ -34,7 +34,7 @@ export const CONFIRMATION_EMAIL_HTML = `<!doctype html>
 </head>
 <body style="margin:0;padding:0;background:#FAF6EE;-webkit-font-smoothing:antialiased;">
 <div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#FAF6EE;opacity:0;">
-Είσαι επίσημα στη λίστα αναμονής του EasyData — €9/μήνα κλειδωμένα για τους πρώτους 100.
+Είσαι επίσημα στη λίστα αναμονής του EasyData — €5/μήνα κλειδωμένα για τους πρώτους 100.
 </div>
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#FAF6EE;">
 <tr>
@@ -61,7 +61,7 @@ easydata<span style="color:#B8442A;">.</span>
 </p>
 <ul style="margin:0 0 28px;padding:0 0 0 20px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.7;color:#1A1612;">
 <li style="margin:0 0 6px;">Κρατάμε τη θέση σου με προτεραιότητα όταν ανοίξουμε</li>
-<li style="margin:0 0 6px;">Στους πρώτους 100, κλειδώνουμε <strong style="color:#B8442A;">€9/μήνα για πάντα</strong> (μετά γίνεται €15)</li>
+<li style="margin:0 0 6px;">Στους πρώτους 100, κλειδώνουμε <strong style="color:#B8442A;">€5/μήνα για πάντα</strong> (μετά γίνεται €7)</li>
 <li style="margin:0 0 6px;">Πρώτος μήνας δωρεάν</li>
 <li style="margin:0;">Καμία κάρτα τώρα</li>
 </ul>

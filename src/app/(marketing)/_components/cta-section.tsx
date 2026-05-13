@@ -25,7 +25,7 @@ export function CtaSection() {
         <p className="mx-auto mb-12 max-w-[540px] text-[18px] leading-[1.55] text-taupe">
           Στους πρώτους 100 που μπαίνουν στη λίστα, κλειδώνουμε{" "}
           <strong className="font-semibold text-terracotta">
-            €9/μήνα για πάντα
+            €5/μήνα για πάντα
           </strong>
           . Στέλνουμε ένα email όταν ανοίγουμε. Όχι spam.
         </p>

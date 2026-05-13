@@ -17,20 +17,17 @@ export function Hero() {
             </div>
 
             <h1 className="mb-8 font-display font-medium tracking-[-0.025em] text-espresso text-[clamp(48px,7vw,88px)] leading-[0.98] opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.25s]">
-              Έτοιμος{" "}
+              Τιμολόγιο σε{" "}
               <em className="not-italic font-display italic font-normal text-terracotta">
-                για το myDATA;
+                30 δευτερόλεπτα
               </em>
+              . Από το κινητό σου.
             </h1>
 
             <p className="mb-10 max-w-[480px] text-[19px] leading-[1.55] text-taupe opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.4s]">
-              Από 1 Οκτωβρίου 2026, κάθε τιμολόγιο εκδίδεται υποχρεωτικά
-              μέσω παρόχου ηλεκτρονικής τιμολόγησης. Σε βοηθάμε να το
-              κάνεις σε{" "}
-              <strong className="font-semibold text-espresso">
-                30 δευτερόλεπτα
-              </strong>{" "}
-              — από το κινητό σου.
+              Από 1 Οκτωβρίου 2026, η ηλεκτρονική τιμολόγηση γίνεται
+              υποχρεωτική. Φτιάχνουμε το πιο γρήγορο και απλό εργαλείο για
+              ελεύθερους επαγγελματίες — όχι ολόκληρο ERP.
             </p>
 
             <div className="opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.55s] max-w-[480px] mx-0">
@@ -41,9 +38,9 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-[13px] text-taupe opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.7s]">
-              Πρώτος μήνας{" "}
-              <strong className="font-semibold text-terracotta">δωρεάν</strong>{" "}
-              στους πρώτους 100. Χωρίς κάρτα.
+              Στους πρώτους 100,{" "}
+              <strong className="font-semibold text-terracotta">€5/μήνα</strong>{" "}
+              κλειδωμένο για πάντα. Χωρίς κάρτα.
             </p>
           </div>
 
