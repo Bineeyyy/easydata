@@ -23,11 +23,12 @@ export function CtaSection() {
         </h2>
 
         <p className="mx-auto mb-12 max-w-[540px] text-[18px] leading-[1.55] text-taupe">
-          Στους πρώτους 100 που μπαίνουν στη λίστα, κλειδώνουμε{" "}
+          Στους πρώτους 50 που μπαίνουν στη λίστα,{" "}
           <strong className="font-semibold text-terracotta">
-            €5/μήνα για πάντα
+            δωρεάν για πάντα
           </strong>
-          . Στέλνουμε ένα email όταν ανοίγουμε. Όχι spam.
+          {" "}— καθόλου κάρτα, καθόλου χρέωση. Μετά τους πρώτους 50, €5/μήνα.
+          Στέλνουμε ένα email όταν ανοίγουμε. Όχι spam.
         </p>
 
         <WaitlistForm source="cta_bottom" variant="terracotta" size="lg" />

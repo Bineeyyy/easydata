@@ -38,9 +38,9 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-[13px] text-taupe opacity-0 animate-[var(--animate-fade-up)] [animation-delay:0.7s]">
-              Στους πρώτους 100,{" "}
-              <strong className="font-semibold text-terracotta">€5/μήνα</strong>{" "}
-              κλειδωμένο για πάντα. Χωρίς κάρτα.
+              Στους πρώτους 50,{" "}
+              <strong className="font-semibold text-terracotta">δωρεάν για πάντα</strong>
+              . Χωρίς κάρτα.
             </p>
           </div>
 

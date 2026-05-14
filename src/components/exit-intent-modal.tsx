@@ -218,9 +218,9 @@ export function ExitIntentModal() {
             <p className="mt-5 text-[16px] leading-[1.55] text-taupe">
               Κλείδωσε{" "}
               <span className="font-medium text-terracotta">
-                €5/μήνα για πάντα
+                δωρεάν για πάντα
               </span>{" "}
-              πριν ανοίξουμε. Στους πρώτους 100 — μετά γίνεται €7.
+              πριν ανοίξουμε. Στους πρώτους 50 — μετά €5/μήνα.
             </p>
 
             <form
